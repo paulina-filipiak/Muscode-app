@@ -6,10 +6,11 @@ export const ProductCard = (product) => {
 		product.name
 	} width="500" height="600" >
     ${
-			product.promo ? "<p>${product.promoPrice}</p>" : "<p>${product.price}</p>"
+			product.promo
+				? `<p>${product.promoPrice}</p> <p>${product.price}</p>`
+				: `<p>${product.price}</p>`
 		}
-    <p>${product.promoPrice}</p>
-    <p>${product.name}</p>
+  
 
     </section>
     `
