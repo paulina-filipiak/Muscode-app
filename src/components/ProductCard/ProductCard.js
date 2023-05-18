@@ -1,17 +1,17 @@
 export const ProductCard = (product) => {
 	console.log(product.imgPath)
-	return `
-    <section class="card "> 
-    <h2 class="card__name">${product.name}</h2>
-    <img class="card__img" src="/src/assets/${product.imgPath}" alt=${
-		product.name
-	} width="50" height="60" >
-    ${
-			product.promo
+	return /* HTML */ `
+		<section class="card " key=${product.id}>
+			<h2 class="card__name">${product.name}</h2>
+			<img
+				class="card__img"
+				src="/src/assets/${product.imgPath}"
+				alt=${product.name}
+				width="50"
+				height="60" />
+			${product.promo
 				? `<p>${product.promoPrice}</p> <p>${product.price}</p>`
-				: `<p>${product.price}</p>`
-		}
-  
-    </section>
-    `
+				: `<p>${product.price}</p>`}
+		</section>
+	`
 }
