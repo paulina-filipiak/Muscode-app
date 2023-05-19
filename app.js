@@ -15,10 +15,15 @@ const App = () => {
 	productCards.forEach((card) =>
 		card.addEventListener("click", () => {
 			// console.log(`modal-${card.id}`)
-			openModal(`modal-${card.id}`)
+			openModal(`modal-${card?.id}`)
 		})
 	)
-	document.getElementById("modal-overlay").addEventListener("click", closeModal)
+	document
+		.getElementById("modal-overlay")
+		.addEventListener("click", (event) => {
+			event.preventDefault()
+			closeModal()
+		})
 }
 
 export default App()
