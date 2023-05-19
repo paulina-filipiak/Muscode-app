@@ -1,9 +1,9 @@
 export const openModal = (id) => {
-	document.getElementById(id).classList.add("open")
+	document.getElementById("modal-overlay").style.display = "flex"
+	document.getElementById(id).style.display = "flex"
 }
 
 export const closeModal = () => {
-	document
-		.querySelectorAll(".open")
-		.forEach((element) => element.classList.remove("open"))
+	document.getElementById("modal-overlay").style.display = "none"
+	document.querySelector(".modal").style.display = "none"
 }
