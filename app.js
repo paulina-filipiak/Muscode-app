@@ -10,20 +10,60 @@ const App = () => {
 	ProductsTable(products)
 	const productCards = Array.from(document.querySelectorAll(".card"))
 	ModalList(productCards)
-	// console.log("productCards", productCards)
 
 	productCards.forEach((card) =>
 		card.addEventListener("click", () => {
-			// console.log(`modal-${card.id}`)
 			openModal(`modal-${card?.id}`)
 		})
 	)
-	document
-		.getElementById("modal-overlay")
-		.addEventListener("click", (event) => {
+
+	const forms = Array.from(document.querySelectorAll(`form`))
+
+	forms.forEach(function (form, index) {
+		form.addEventListener("submit", function (event) {
 			event.preventDefault()
+			const updatedName = document.querySelector(
+				`#form-${index} input[name="name"]`
+			).value
+			const updatedPrice = document.querySelector(
+				`#form-${index} input[name="price"]`
+			).value
+			const updatedPromoPrice = document.querySelector(
+				`#form-${index} input[name="promoPrice"]`
+			).value
+			const updatedCurrency = document.querySelector(
+				`#form-${index} select[name="currency"]`
+			).value
+			products[index] = {
+				...products[index],
+				name: updatedName,
+				price: updatedPrice,
+				promoPrice: updatedPromoPrice,
+				currency: updatedCurrency,
+				promo: updatedPromoPrice ? true : false,
+			}
 			closeModal()
+			console.log("Updated products:", products[index])
+
+			//render elements with updated data
+			ProductCardList(products)
+			ProductsTable(products)
+			const productCards = Array.from(document.querySelectorAll(".card"))
+
+			productCards.forEach(function (card) {
+				card.addEventListener("click", function () {
+					console.log(`modal-${card.id}`)
+					openModal(`modal-${card?.id}`)
+				})
+			})
 		})
+	})
+
+	const buttonsCancel = Array.from(document.querySelectorAll(".cancel"))
+
+	buttonsCancel.forEach((button) =>
+		button.addEventListener("click", () => closeModal())
+	)
 }
 
 export default App()
