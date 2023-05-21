@@ -5,7 +5,7 @@
 	--color-background: #f5f8fa; /*background, table row focus*/
 	--color-checked: #862583; /*buttons, checkboxes, checked*/
 	background-color: var(--color-background);
-	color: #242424;
+	color: var(--color-greyish-blue);
 }
 
 *,
@@ -29,9 +29,6 @@ body {
 	color: var(--color-greyish-blue);
 }
 
-text {
-	display: none;
-}
 h1,
 h2,
 h3,
@@ -45,6 +42,9 @@ table {
 }
 tr {
 	border-bottom: 1px solid #b2b2b2;
+}
+tr:hover {
+	background-color: var(--color-background);
 }
 td,
 th {
@@ -60,6 +60,9 @@ th {
 li {
 	padding: 0.7rem;
 	border-bottom: 1px solid #b2b2b2;
+}
+
+button:active {
 }
 
 #wrapper__body {
@@ -104,6 +107,12 @@ li {
 
 .todo-list-container {
 	grid-area: todo;
+}
+
+.headers {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .products-table-container {

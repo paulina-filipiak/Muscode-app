@@ -8,7 +8,34 @@ import { v4 as uuidv4 } from "uuid"
 
 const App = () => {
 	//----------------TODO LIST-----------------------//
-	const todos = []
+	const todos = [
+		{
+			text: "Lorem ipsum dolor sit amet, consectetur ",
+			checked: false,
+			id: uuidv4(),
+		},
+		{
+			text: "sed do eiusmod tempor incididunt ut labore et .",
+			checked: false,
+			id: uuidv4(),
+		},
+		{
+			text: "Ut enim ad minim veniam, quis nostrud ",
+			checked: false,
+			id: uuidv4(),
+		},
+		{
+			text: "laboris nisi ut aliquip ex ea commodo.",
+			checked: false,
+			id: uuidv4(),
+		},
+		{
+			text: "Duis aute irure dolor in reprehenderit in ",
+			checked: false,
+			id: uuidv4(),
+		},
+	]
+	TodoList(todos)
 	const checkedCounter = document.querySelector("#checked-counter")
 
 	function addTodo(text) {

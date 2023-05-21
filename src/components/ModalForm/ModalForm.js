@@ -10,7 +10,10 @@ export const ModalForm = (id) => {
 			<label>Cena</label>
 			<input type="number" name="price" value="${products[id].price}" />
 			<label>Promocyjna cena</label>
-			<input type="text" name="promoPrice" value="${products[id].promoPrice}" />
+			<input
+				type="number"
+				name="promoPrice"
+				value="${products[id].promoPrice}" />
 			<label>Waluta</label>
 			<select name="currency" value="${products[id].currency}">
 				<option ${products[id].currency === "$" ? "selected" : ""}>$</option>
