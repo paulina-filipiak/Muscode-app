@@ -27,6 +27,7 @@ body {
 	font-weight: 400;
 	line-height: var(--line-height-body);
 	color: var(--color-greyish-blue);
+	height: 100%;
 }
 
 h1,
@@ -62,7 +63,32 @@ li {
 	border-bottom: 1px solid #b2b2b2;
 }
 
-button:active {
+select {
+	appearance: none;
+	outline: none;
+	border: 0;
+	padding: 0.5rem;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+form[name] {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: relative;
+}
+
+form[name] > input {
+	border: 0;
+	padding: 0.5rem;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+form[name] > label {
+	border: 0;
+	padding: 0 0.5rem;
+	margin-top: 1rem;
+	color: var(--color-border);
 }
 
 #wrapper__body {
@@ -70,10 +96,13 @@ button:active {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
+	height: 100%;
+	margin-bottom: 3rem;
 }
 
 .wrapper__main {
 	width: 100%;
+	height: 100%;
 	display: grid;
 	grid-template-areas: "todo table table" "cards cards cards";
 	gap: 1rem;
@@ -170,23 +199,80 @@ input[type="checkbox"]:checked {
 }
 .modal {
 	display: none;
-	position: fixed;
+	position: absolute;
 	z-index: 1;
 	right: 0;
 	top: 0;
-	height: 100%;
 	width: 40%;
+	height: 100%;
 	background-color: rgb(255, 255, 255);
+	padding: 0.7rem;
+}
+
+div.img-round {
+	position: relative;
+	min-width: 17rem;
+	min-height: 17rem;
+	object-fit: scale-down;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 2rem auto;
+	box-shadow: 0 0 0.5rem #b2b2b2bf;
+}
+
+div.img-round:before {
+	display: block;
+	content: "";
+	margin-top: 100%;
+}
+
+div.img-round > img {
+	display: block;
+	position: absolute;
+	object-fit: scale-down;
+	width: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
 
 #modal-overlay {
 	display: none;
-	width: 60%;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	position: absolute;
-	background: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-form-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
 }
 
-/* .open {
-	display: block;
-} */
+.modal-form-container > h2 {
+	padding: 2rem 0;
+	border-bottom: 3px solid #323b83ff;
+}
+
+div.buttons-form {
+	bottom: 0px;
+	padding: 0.5rem;
+	margin-top: 3rem;
+}
+
+.buttons-form > button {
+	padding: 0.5rem;
+	background-color: white;
+	border: 1px solid #b2b2b2;
+	outline: none;
+}
+button.purple {
+	background-color: var(--color-checked);
+	color: var(--color-background);
+}

@@ -37,7 +37,14 @@ const App = () => {
 	]
 	TodoList(todos)
 	const checkedCounter = document.querySelector("#checked-counter")
-
+	const checkboxes = document.querySelectorAll("input[type=checkbox]")
+	checkboxes.forEach(function (checkbox) {
+		checkbox.addEventListener("change", function (event) {
+			event.preventDefault()
+			const checked = Array.from(document.querySelectorAll("input:checked"))
+			checkedCounter.innerHTML = checked.length
+		})
+	})
 	function addTodo(text) {
 		const todo = {
 			text,
@@ -82,7 +89,7 @@ const App = () => {
 		})
 	)
 
-	const forms = Array.from(document.querySelectorAll(`form`))
+	const forms = Array.from(document.querySelectorAll(`form[name="modalForm"]`))
 
 	forms.forEach(function (form, index) {
 		form.addEventListener("submit", function (event) {
