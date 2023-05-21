@@ -4,19 +4,28 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet" />
 		<title>Muscode App</title>
 	</head>
 	<body>
-		<h1>Muscode App</h1>
-		<main class="wrapper__main">
-			<section class="todo-list-container">ToDolist</section>
-			<section class="products-table-container"></section>
-			<section class="cards-container"></section>
-		</main>
-		<div id="modal-overlay">
-			<!-- <div class="modal" id="modal-0">Modal-0</div>
+		<div id="wrapper__body">
+			<h1 id="header">Muscode App</h1>
+			<main class="wrapper__main">
+				<section class="todo-list-container container">
+					<h3>Lista todo</h3>
+				</section>
+				<section class="products-table-container container"></section>
+				<section class="cards-container"></section>
+			</main>
+			<div id="modal-overlay">
+				<!-- <div class="modal" id="modal-0">Modal-0</div>
 			<div class="modal" id="modal-1">Modal-1</div>
 			<div class="modal" id="modal-2">Modal-2</div> -->
+			</div>
 		</div>
 
 		<script type="module" src="./app.js"></script>
