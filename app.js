@@ -1,10 +1,48 @@
 import { ModalList } from "./src/components/ModalList/ModalList"
 import { ProductCardList } from "./src/components/ProductCardsList/ProductCardList"
 import { ProductsTable } from "./src/components/ProductsTable/ProductsTable"
+import { TodoList } from "./src/components/Todolist/TodoList"
 import { useProducts } from "./src/database/products"
 import { closeModal, openModal } from "./src/functions/modal/modal"
+import { v4 as uuidv4 } from "uuid"
 
 const App = () => {
+	//----------------TODO LIST-----------------------//
+	const todos = []
+	const checkedCounter = document.querySelector("#checked-counter")
+
+	function addTodo(text) {
+		const todo = {
+			text,
+			checked: false,
+			id: uuidv4(),
+		}
+		todos.push(todo)
+	}
+
+	const todoForm = document.querySelector("#todo-form")
+
+	todoForm.addEventListener("submit", (event) => {
+		event.preventDefault()
+		const input = document.querySelector("#todo-input")
+		const text = input.value.trim()
+		if (text !== "") {
+			addTodo(text)
+			input.value = ""
+		}
+		TodoList(todos)
+		const checkboxes = document.querySelectorAll("input[type=checkbox]")
+		checkboxes.forEach(function (checkbox) {
+			checkbox.addEventListener("change", function (event) {
+				event.preventDefault()
+				const checked = Array.from(document.querySelectorAll("input:checked"))
+				checkedCounter.innerHTML = checked.length
+			})
+		})
+	})
+
+	//----------------PRODUCTS-----------------------//
+
 	const products = useProducts
 	ProductCardList(products)
 	ProductsTable(products)

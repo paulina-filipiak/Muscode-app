@@ -28,6 +28,10 @@ body {
 	line-height: var(--line-height-body);
 	color: var(--color-greyish-blue);
 }
+
+text {
+	display: none;
+}
 h1,
 h2,
 h3,
@@ -53,6 +57,11 @@ th {
 	font-weight: normal;
 }
 
+li {
+	padding: 0.7rem;
+	border-bottom: 1px solid #b2b2b2;
+}
+
 #wrapper__body {
 	width: 1180px;
 	display: flex;
@@ -69,6 +78,19 @@ th {
 }
 #header {
 	margin: 3rem auto;
+}
+
+#todo-list {
+	list-style-type: none;
+}
+
+#todo-input {
+	all: unset;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.7rem;
+	border: 0;
+	border-bottom: 1px solid #b2b2b2;
 }
 
 .container {
@@ -103,11 +125,21 @@ th {
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button,
-/* input[type="number"] {
+input[type="checkbox"] {
+	height: 1rem;
+	width: 1rem;
 	-webkit-appearance: none;
-	margin: 0;
-	-moz-appearance: textfield !important;
-} */
+	-moz-appearance: none;
+	-o-appearance: none;
+	border: 0;
+	border-radius: 50%;
+	outline: 1px solid #b2b2b2;
+	margin-right: 0.5rem;
+}
+
+input[type="checkbox"]:checked {
+	outline: 2px solid #862583;
+}
 
 .card__img {
 	object-fit: contain;
