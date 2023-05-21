@@ -1,7 +1,7 @@
 import { ModalList } from "./src/components/ModalList/ModalList"
 import { ProductCardList } from "./src/components/ProductCardsList/ProductCardList"
 import { ProductsTable } from "./src/components/ProductsTable/ProductsTable"
-import { TodoList } from "./src/components/Todolist/TodoList"
+import { TodoList } from "./src/components/TodoList/TodoList"
 import { useProducts } from "./src/database/products"
 import { closeModal, openModal } from "./src/functions/modal/modal"
 import { v4 as uuidv4 } from "uuid"
