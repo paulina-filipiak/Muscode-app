@@ -28,6 +28,7 @@ body {
 	line-height: var(--line-height-body);
 	color: var(--color-greyish-blue);
 	height: 100%;
+	width: 100vw;
 }
 
 h1,
@@ -160,7 +161,44 @@ form[name] > label {
 	flex-direction: column;
 	gap: 0.5rem;
 	align-items: center;
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
 }
+.ribbon {
+	background-color: black;
+	position: absolute;
+
+	top: 0;
+	right: 0;
+	transform: translateX(30%) translateY(0%) rotate(45deg);
+	transform-origin: top left;
+}
+.ribbon:before,
+.ribbon:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	margin: 0 -1px; /* tweak */
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+.ribbon:before {
+	right: 100%;
+}
+
+.ribbon:after {
+	left: 100%;
+}
+
+.ribbon-price {
+	color: white;
+	font-weight: bold;
+	padding: 0.2rem;
+	text-align: center;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button,
 input[type="checkbox"] {
@@ -213,10 +251,11 @@ div.img-round {
 	position: relative;
 	min-width: 17rem;
 	min-height: 17rem;
-	object-fit: scale-down;
+
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
+	justify-items: center;
 	align-items: center;
 	overflow: hidden;
 	border-radius: 50%;
@@ -233,7 +272,7 @@ div.img-round:before {
 div.img-round > img {
 	display: block;
 	position: absolute;
-	object-fit: scale-down;
+	object-fit: contain;
 	width: 100%;
 	top: 0;
 	right: 0;
@@ -247,6 +286,7 @@ div.img-round > img {
 	height: 100%;
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
 }
 .modal-form-container {
 	display: flex;
@@ -275,4 +315,18 @@ div.buttons-form {
 button.purple {
 	background-color: var(--color-checked);
 	color: var(--color-background);
+}
+
+@media only screen and (max-width: 1188px) {
+	.wrapper__main {
+		display: flex;
+		flex-direction: column;
+	}
+	.cards-container {
+		flex-direction: column;
+		width: 100%;
+	}
+	.card {
+		justify-content: center;
+	}
 }
